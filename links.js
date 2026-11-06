@@ -1,4 +1,4 @@
-// Links iniciais verificados em 06/11/2026. Para incluir um modelo globalmente, edite esta lista.
+// Sites e Bios para apresentações. Bios padronizadas em 06/11/2026.
 window.VITRINE_DATA = [
   {
     "id": "divino",
@@ -6,7 +6,7 @@ window.VITRINE_DATA = [
     "category": "Odontologia",
     "description": "Identidade premium e agendamento.",
     "site": "https://thiagorevolutio-coder.github.io/previa-divino-dentista/",
-    "bio": "https://thiagorevolutio-coder.github.io/previa-divino-dentista/bio.html",
+    "bio": "https://thiagorevolutio-coder.github.io/previa-divino-dentista/bio.html?v=bio-padrao-20261106-1",
     "image": "assets/divino.webp",
     "color": "#b89950"
   },
@@ -16,7 +16,7 @@ window.VITRINE_DATA = [
     "category": "Salões de beleza",
     "description": "Salão, barbearia e Bio com fotos.",
     "site": "https://thiagorevolutio-coder.github.io/previa-firminos-unidade-3/",
-    "bio": "https://thiagorevolutio-coder.github.io/previa-firminos-unidade-3/bio.html",
+    "bio": "https://thiagorevolutio-coder.github.io/previa-firminos-unidade-3/bio.html?v=bio-padrao-20261106-1",
     "image": "assets/firminos.webp",
     "color": "#ba9353"
   },
@@ -26,7 +26,7 @@ window.VITRINE_DATA = [
     "category": "Vidraçarias",
     "description": "Projetos sob medida e orçamento.",
     "site": "https://thiagorevolutio-coder.github.io/dominus-vidracaria/",
-    "bio": "https://thiagorevolutio-coder.github.io/dominus-vidracaria/bio.html",
+    "bio": "https://thiagorevolutio-coder.github.io/dominus-vidracaria/bio.html?v=dominus-identity-20261105-3",
     "image": "assets/dominus.webp",
     "color": "#3d9359"
   },
@@ -36,7 +36,7 @@ window.VITRINE_DATA = [
     "category": "Locação de motos",
     "description": "Frota, solicitação e WhatsApp.",
     "site": "https://thiagorevolutio-coder.github.io/previa-locafort-motos/",
-    "bio": "https://thiagorevolutio-coder.github.io/previa-locafort-motos/bio.html",
+    "bio": "https://thiagorevolutio-coder.github.io/previa-locafort-motos/bio.html?v=bio-padrao-20261106-1",
     "image": "assets/locafort.webp",
     "color": "#a7373d"
   },
@@ -86,7 +86,7 @@ window.VITRINE_DATA = [
     "category": "Salões de beleza",
     "description": "Beleza, barbearia e bronzeamento.",
     "site": "https://thiagorevolutio-coder.github.io/previa-ines-e-felix/",
-    "bio": "https://thiagorevolutio-coder.github.io/previa-ines-e-felix/bio.html",
+    "bio": "https://thiagorevolutio-coder.github.io/previa-ines-e-felix/bio.html?v=bio-padrao-20261106-1",
     "image": "assets/ines-felix.webp",
     "color": "#6d5372"
   },
@@ -96,7 +96,7 @@ window.VITRINE_DATA = [
     "category": "Salões de beleza",
     "description": "Hair & makeup com identidade própria.",
     "site": "https://thiagorevolutio-coder.github.io/previa-carol-holanda/",
-    "bio": "https://thiagorevolutio-coder.github.io/previa-carol-holanda/bio.html",
+    "bio": "https://thiagorevolutio-coder.github.io/previa-carol-holanda/bio.html?v=bio-padrao-20261106-1",
     "image": "assets/carol-holanda.webp",
     "color": "#907554"
   },
@@ -106,7 +106,7 @@ window.VITRINE_DATA = [
     "category": "Odontologia",
     "description": "Serviços odontológicos e Bio.",
     "site": "https://thiagorevolutio-coder.github.io/previa-clinica-henrique-jorge/",
-    "bio": "https://thiagorevolutio-coder.github.io/previa-clinica-henrique-jorge/bio.html",
+    "bio": "https://thiagorevolutio-coder.github.io/previa-clinica-henrique-jorge/bio.html?v=bio-padrao-20261106-1",
     "image": "assets/henrique-jorge.webp",
     "color": "#477c8e"
   },
