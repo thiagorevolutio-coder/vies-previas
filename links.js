@@ -46,9 +46,29 @@ window.VITRINE_DATA = [
     "category": "Restaurantes",
     "description": "Gastronomia e apresentação do espaço.",
     "site": "https://brasa-nobre-churrascaria.thiago-09.chatgpt.site/",
-    "bio": "https://thiagorevolutio-coder.github.io/vies-previas/modelos/restaurante/",
+    "bio": "https://thiagorevolutio-coder.github.io/vies-previas/modelos/restaurante/?v=2",
     "image": "assets/amo-brasas.webp",
     "color": "#9c3f2a"
+  },
+  {
+    "id": "brasa-burger",
+    "name": "Brasa Burger",
+    "category": "Hamburguerias",
+    "description": "Bio animada com cardápio e pedido demonstrativo.",
+    "site": null,
+    "bio": "https://thiagorevolutio-coder.github.io/vies-previas/modelos/hamburgueria/?v=1",
+    "image": "assets/brasa-burger.webp",
+    "color": "#efad35"
+  },
+  {
+    "id": "o-lima",
+    "name": "Pizzaria O Lima",
+    "category": "Pizzarias",
+    "description": "Pizzaria com site e Bio animada.",
+    "site": "https://pizzaria-o-lima.thiago-09.chatgpt.site/",
+    "bio": "https://thiagorevolutio-coder.github.io/vies-previas/modelos/pizzaria/?v=1",
+    "image": "assets/o-lima.webp",
+    "color": "#aa553b"
   },
   {
     "id": "my-best-pet",
@@ -149,16 +169,6 @@ window.VITRINE_DATA = [
     "bio": null,
     "image": "assets/odonto-medice.webp",
     "color": "#637f8c"
-  },
-  {
-    "id": "o-lima",
-    "name": "Pizzaria O Lima",
-    "category": "Restaurantes",
-    "description": "Pizzaria com apresentação e pedidos.",
-    "site": "https://pizzaria-o-lima.thiago-09.chatgpt.site/",
-    "bio": null,
-    "image": "assets/o-lima.webp",
-    "color": "#aa553b"
   },
   {
     "id": "nara-aquino",

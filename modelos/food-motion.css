@@ -1,0 +1,15 @@
+/* Movimento contínuo só com transform e opacity, sem filtros ou alterações de layout. */
+.food-motion{position:absolute!important;z-index:1!important;inset:0;overflow:hidden;pointer-events:none}
+.food-motion span{position:absolute;display:block;width:42px;height:42px;color:var(--gold2);opacity:.16;animation:food-float 7s ease-in-out infinite;pointer-events:none}
+.food-motion svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.food-motion span:nth-child(1){right:9px;top:49px;animation-delay:-1s}.food-motion span:nth-child(2){left:-8px;top:424px;animation:food-turn 12s linear infinite;opacity:.13}.food-motion span:nth-child(3){right:-9px;bottom:40px;animation-delay:-3.5s;opacity:.1}
+.brand-mark{animation:food-logo 5.6s ease-in-out infinite}.bio-media>img{animation:food-photo 10s ease-in-out infinite;transform-origin:center}
+.bio-media:before{content:"";position:absolute;z-index:4;top:-40%;bottom:-40%;left:0;width:22%;pointer-events:none;background:linear-gradient(90deg,transparent,#ffffff30,transparent);transform:translate3d(-250%,0,0) skewX(-18deg);animation:food-shine 8s ease-in-out infinite}
+.bio-js .bio-reveal{filter:none!important;transition:opacity .45s ease var(--bio-delay,0ms),transform .6s cubic-bezier(.2,.8,.2,1) var(--bio-delay,0ms)!important;will-change:auto}
+.bio-js .bio-reveal.is-visible{filter:none!important}.bio-link:before{transition:transform .55s cubic-bezier(.2,.8,.2,1);filter:none!important}
+@keyframes food-float{0%,100%{transform:translate3d(0,0,0) rotate(-8deg)}50%{transform:translate3d(-4px,-10px,0) rotate(7deg)}}
+@keyframes food-turn{to{transform:rotate(360deg)}}
+@keyframes food-logo{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-4px,0)}}
+@keyframes food-photo{0%,100%{transform:scale(1.015)}50%{transform:scale(1.045)}}
+@keyframes food-shine{0%,55%{transform:translate3d(-250%,0,0) skewX(-18deg);opacity:0}60%{opacity:.7}79%,100%{transform:translate3d(700%,0,0) skewX(-18deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.food-motion span,.brand-mark,.bio-media>img,.bio-media:before{animation:none!important}.bio-js .bio-reveal{opacity:1;transform:none!important;transition:none!important}.bio-media>img{transform:none!important}}
