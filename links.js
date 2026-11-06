@@ -1,6 +1,26 @@
 // Exemplos de sites e Bios para apresentações da Viés Mídia.
 window.VITRINE_DATA = [
   {
+    "id": "navalha-clube",
+    "name": "Navalha Clube",
+    "category": "Barbearias",
+    "description": "Bio animada com serviços e solicitação de horário.",
+    "site": null,
+    "bio": "https://thiagorevolutio-coder.github.io/vies-previas/modelos/barbearia/?v=1",
+    "image": "assets/navalha-clube.webp",
+    "color": "#b48051"
+  },
+  {
+    "id": "veste-moda",
+    "name": "Veste Moda",
+    "category": "Lojas de roupas",
+    "description": "Bio animada com coleção e consulta de peça e tamanho.",
+    "site": null,
+    "bio": "https://thiagorevolutio-coder.github.io/vies-previas/modelos/loja-de-roupas/?v=1",
+    "image": "assets/veste-moda.webp",
+    "color": "#a66880"
+  },
+  {
     "id": "divino",
     "name": "Divino Dentista",
     "category": "Odontologia",
