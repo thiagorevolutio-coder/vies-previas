@@ -1,4 +1,4 @@
-// Sites e Bios para apresentações. Bios padronizadas em 06/11/2026.
+// Exemplos de sites e Bios para apresentações da Viés Mídia.
 window.VITRINE_DATA = [
   {
     "id": "divino",
@@ -46,7 +46,7 @@ window.VITRINE_DATA = [
     "category": "Restaurantes",
     "description": "Gastronomia e apresentação do espaço.",
     "site": "https://brasa-nobre-churrascaria.thiago-09.chatgpt.site/",
-    "bio": null,
+    "bio": "https://thiagorevolutio-coder.github.io/vies-previas/modelos/restaurante/",
     "image": "assets/amo-brasas.webp",
     "color": "#9c3f2a"
   },
