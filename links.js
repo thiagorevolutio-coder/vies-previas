@@ -164,11 +164,11 @@ window.VITRINE_DATA = [
     "id": "fortaldente",
     "name": "FortalDente",
     "category": "Odontologia",
-    "description": "Tratamentos e conversão no WhatsApp.",
-    "site": "https://thiagorevolutio-coder.github.io/previa-fortaldente/",
-    "bio": null,
+    "description": "Clínica, tratamentos e Bio animada na identidade azul.",
+    "site": "https://thiagorevolutio-coder.github.io/previa-fortaldente/?v=fortaldente-20261109-1",
+    "bio": "https://thiagorevolutio-coder.github.io/previa-fortaldente/bio.html?v=fortaldente-20261109-1",
     "image": "assets/fortaldente.webp",
-    "color": "#558e80"
+    "color": "#195dae"
   },
   {
     "id": "life-odonto",
