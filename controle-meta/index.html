@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meta Semanal</title>
+<style>
+:root{
+  --bg:#0f1720; --card:#18232f; --line:#2b3948; --text:#f5f7fa;
+  --muted:#9fb0c0; --accent:#4da3ff; --green:#20c56b; --red:#ff5d5d; --yellow:#f4c95d;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:18px}
+h1{font-size:25px;margin:0 0 8px}
+.sub{color:var(--muted);margin-bottom:18px;line-height:1.4}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.box small{color:var(--muted);display:block;margin-bottom:6px}
+.box strong{font-size:22px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:760px;background:var(--card)}
+th,td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:13px;color:var(--muted);text-align:left;background:#13202b;position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+.week{font-weight:700}.goal{font-weight:700}
+input{width:140px;max-width:100%;background:#0f1720;color:white;border:1px solid #3b4a5b;border-radius:9px;padding:10px;font-size:16px;outline:none}
+input:focus{border-color:var(--accent)}
+.status{font-weight:800;padding:7px 10px;border-radius:9px;display:inline-block;min-width:110px;text-align:center}
+.green{background:rgba(32,197,107,.15);color:#5ef09e}
+.red{background:rgba(255,93,93,.15);color:#ff8888}
+.gray{background:#243241;color:#c5d0db}
+.details{font-size:13px;color:var(--muted);line-height:1.4}
+.note{margin-top:14px;color:var(--muted);font-size:13px}
+button{margin-top:14px;background:#243241;color:white;border:1px solid #3b4a5b;padding:10px 14px;border-radius:9px;font-weight:700;cursor:pointer}
+@media(max-width:700px){.summary{grid-template-columns:1fr}h1{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Controle de Meta Semanal</h1>
+  <div class="sub">Preencha apenas o valor líquido que você fez em cada semana. O sistema mostra automaticamente quanto falta ou quanto sobra. A sobra ou falta é carregada para a semana seguinte.</div>
+  <div class="summary">
+    <div class="box"><small>Meta total planejada</small><strong id="metaTotal">R$ 0,00</strong></div>
+    <div class="box"><small>Total realizado</small><strong id="feitoTotal">R$ 0,00</strong></div>
+    <div class="box"><small>Saldo acumulado</small><strong id="saldoTotal">R$ 0,00</strong></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Semana</th><th>Período</th><th>Meta em R$</th><th>O que precisa cobrir</th><th>Quanto fiz</th><th>Resultado</th><th>Saldo acumulado</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <button onclick="limpar()">Limpar valores preenchidos</button>
+  <div class="note">Os dados ficam salvos neste aparelho/navegador.</div>
+</div>
+<script>
+const semanas = [
+  {nome:"Semana 1", periodo:"10/11 a 14/11", meta:1548, detalhes:"Alimentação R$ 250 • Combustível R$ 60 • Aluguel R$ 500 • Internet R$ 100 • Cleidiane R$ 638"},
+  {nome:"Semana 2", periodo:"15/11 a 21/11", meta:2130, detalhes:"Alimentação R$ 250 • Combustível R$ 60 • Energia R$ 109 • Água R$ 48 • ChatGPT R$ 95 • restante vira antecipação"},
+  {nome:"Semana 3", periodo:"22/11 a 28/11", meta:2130, detalhes:"Alimentação R$ 250 • Combustível R$ 60 • foco em criar caixa e antecipar dezembro"},
+  {nome:"Semana 4", periodo:"29/11 a 05/12", meta:2130, detalhes:"Alimentação R$ 250 • Combustível R$ 60 • Cleidiane R$ 377 • Empréstimo R$ 2.031"},
+  {nome:"Semana 5", periodo:"06/12 a 12/12", meta:2130, detalhes:"Alimentação R$ 250 • Combustível R$ 60 • Aluguel R$ 500 • Internet R$ 100 • Energia R$ 109 • Água R$ 48"},
+  {nome:"Semana 6", periodo:"13/12 a 19/12", meta:1420, detalhes:"Alimentação R$ 250 • Combustível R$ 60 • Zé R$ 2.031"},
+  {nome:"Semana 7", periodo:"20/12 a 24/12", meta:710, detalhes:"Alimentação R$ 250 • Combustível R$ 60 • guardar Cleidiane 06/01 R$ 377 • guardar Empréstimo 10/01 R$ 2.031"}
+];
+const money = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+function render(){
+  const tbody=document.getElementById("rows");tbody.innerHTML="";
+  let acumulado=0,totalFeito=0,metaTotal=0;
+  semanas.forEach((s,i)=>{
+    const val=parseFloat(localStorage.getItem("semana_"+i)||"0");
+    totalFeito+=val;metaTotal+=s.meta;acumulado+=val-s.meta;
+    const falta=acumulado<0?Math.abs(acumulado):0;
+    const sobra=acumulado>0?acumulado:0;
+    const tr=document.createElement("tr");
+    tr.innerHTML=`
+      <td class="week">${s.nome}</td>
+      <td>${s.periodo}</td>
+      <td class="goal">${money(s.meta)}</td>
+      <td class="details">${s.detalhes}</td>
+      <td><input inputmode="decimal" placeholder="R$ 0,00" value="${val?val:""}" oninput="salvar(${i},this.value)"></td>
+      <td>${acumulado===0?'<span class="status gray">No ponto</span>':sobra>0?'<span class="status green">Sobra '+money(sobra)+'</span>':'<span class="status red">Falta '+money(falta)+'</span>'}</td>
+      <td class="${acumulado>=0?'green':'red'}" style="font-weight:800">${money(acumulado)}</td>`;
+    tbody.appendChild(tr);
+  });
+  document.getElementById("metaTotal").textContent=money(metaTotal);
+  document.getElementById("feitoTotal").textContent=money(totalFeito);
+  const saldo=totalFeito-metaTotal;const el=document.getElementById("saldoTotal");
+  el.textContent=money(saldo);el.style.color=saldo>=0?"#5ef09e":"#ff8888";
+}
+function salvar(i,v){
+  v=String(v).replace(/\./g,"").replace(",",".").replace(/[^\d.-]/g,"");
+  const n=parseFloat(v);
+  if(isNaN(n))localStorage.removeItem("semana_"+i);else localStorage.setItem("semana_"+i,n);
+  render();
+}
+function limpar(){
+  if(confirm("Apagar os valores preenchidos?")){semanas.forEach((_,i)=>localStorage.removeItem("semana_"+i));render();}
+}
+render();
+</script>
+</body>
+</html>
