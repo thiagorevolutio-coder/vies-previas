@@ -1,6 +1,16 @@
 // Exemplos de sites e Bios para apresentações da Viés Mídia.
 window.VITRINE_DATA = [
   {
+    "id": "bio-orbita",
+    "name": "Bio Órbita · Rosé",
+    "category": "Bios e perfis",
+    "description": "Nome em órbita, brilhos, carrossel e confirmação de 18 anos.",
+    "site": null,
+    "bio": "https://thiagorevolutio-coder.github.io/vies-previas/modelos/bio-orbita/?v=1",
+    "image": "assets/bio-orbita.webp",
+    "color": "#c59377"
+  },
+  {
     "id": "navalha-clube",
     "name": "Navalha Clube",
     "category": "Barbearias",
